@@ -1,0 +1,42 @@
+
+<ion-content>
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class= "login-section ion-padding">
+      <h2><b> Welcome to Saturn !</b></h2>
+      <div class= "login-form">
+      <div class= "form input">
+        <ion-item lines="full">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input formControlName="email" type="email"></ion-input>
+        </ion-item>
+        <span class="error ion-padding" *ngIf="submitted && errorCtr.email.errors?.required">
+          Email is required.
+        </span>
+        <span class="error ion-padding" *ngIf="submitted && errorCtr.email.errors?.pattern">
+          Enter valid email.
+        </span>
+      </div>
+      <div class= "form input">
+        <ion-item lines="full">
+         <ion-label position="floating">Password</ion-label>
+         <ion-input formControlName="password" type="password"></ion-input>
+        </ion-item>
+        <span class="error ion-padding" *ngIf="submitted && errorCtr.password.errors?.required">
+          Password is required.
+        </span>
+        <span class="error ion-padding" *ngIf="submitted && errorCtr.phone.password?.minlength">
+          Min 8 chars long.
+        </span>
+      </div>
+
+    <ion-row>
+      <ion-col>
+        <ion-button size="large" class="login-button" type="submit" color="warning" expand="block">Login</ion-button>
+         <p><center>forgot password ?</center></p>
+        <ion-button size="large" class="signup-button" fill="outline" expand="block" [routerLink]="['/signin']">Sign Up</ion-button>
+      </ion-col>
+    </ion-row>
+      </div>
+    </div>
+  </form>
+</ion-content>
